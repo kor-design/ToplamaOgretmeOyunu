@@ -14,6 +14,8 @@ namespace ToplamaOgret
             int puan = 0;
             Random rand = new Random();
             int sonuc;
+            int dogrucevap = 0;
+            int yanliscevap = 0;
             do
             {
                 int sayi1 = rand.Next(1, 100);
@@ -23,13 +25,20 @@ namespace ToplamaOgret
                 sonuc = Convert.ToInt32(Console.ReadLine());
                 if (sonuc == (sayi1 + sayi2))
                 {
+                    dogrucevap++;
                     puan = puan + 20;
-                    Console.WriteLine("Tebrikler doğru cevap 20 puan kazandınız \nToplam Puanınız {0}", puan);
+                    Console.WriteLine("Tebrikler doğru cevap 20 puan kazandınız " +
+                        "\nToplam Puanınız {0} " +
+                        "\nDoğru cevap sayısı={1} ", puan,dogrucevap);
+
                 }
                 else
                 {
+                    yanliscevap++;
                     puan = puan - 10;
-                    Console.WriteLine("Üzgünüz yanlış cevaplandı 10 puan kaybettiniz \nToplam Puanınız {0}", puan);
+                    Console.WriteLine("Üzgünüz yanlış cevaplandı 10 puan kaybettiniz " +
+                        "\nToplam Puanınız {0}" +
+                        "\nYanlış cevap sayısı={1}", puan,yanliscevap);
                 }
             } while (puan < 100 && puan >= 0);
             if (puan==100)
